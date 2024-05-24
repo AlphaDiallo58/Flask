@@ -5,10 +5,12 @@ import os
 
 app = Flask(__name__)
 
-# Définition de la route pour servir les fichiers statiques
+
 @app.route('/static/<path:path>')
 def send_static(path):
     return send_from_directory('static', path)
+
+
 
 def obtenir_mot():
     response = requests.get("https://trouve-mot.fr/api/random")
@@ -21,7 +23,7 @@ def obtenir_mot():
 def get_definitions(word):
     definitions = []
 
-    # Définitions depuis Wiktionnaire
+    
     wiktionary_url = f"https://fr.wiktionary.org/wiki/{word}"
     wiktionary_response = requests.get(wiktionary_url)
     if wiktionary_response.status_code == 200:
@@ -36,6 +38,12 @@ def get_definitions(word):
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/jeu')
+def jeu():
+    return render_template('jeu.html')
+
+
 
 @app.route('/mot_aleatoire', methods=['GET'])
 def mot_aleatoire():
