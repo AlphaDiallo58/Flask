@@ -20,7 +20,7 @@ To set up the project, follow these steps:
 1. Clone the repository:
    ```bash
    git clone https://github.com/AlphaDiallo58/Flask.git
-   cd Flask
+   cd Jeu flask python
    ```
 
 2. Create a virtual environment (optional but recommended):
